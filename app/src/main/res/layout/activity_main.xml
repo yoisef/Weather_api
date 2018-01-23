@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#0404B4"
+    android:layout_height="match_parent"
+    tools:context="youssef.com.myweather.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5pt"
+        android:id="@+id/citytext"
+        android:layout_centerHorizontal="true"
+        android:text="Alexandria,Egypt"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/condition"
+        android:text="Conition"
+
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        android:layout_alignBaseline="@+id/pressuretext"
+        android:layout_alignBottom="@+id/pressuretext"
+        android:layout_alignStart="@+id/updatetext"
+        android:layout_marginStart="53dp" />
+    <ImageView
+        android:layout_width="100dp"
+        android:id="@+id/thumbnailicon"
+        android:layout_below="@id/citytext"
+        android:layout_margin="5pt"
+        android:background="#fff"
+        android:layout_height="100dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/temptext"
+        android:text="12 Deg"
+        android:textColor="#fff"
+        android:layout_below="@id/citytext"
+        android:textSize="40sp"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:textStyle="normal"/>
+    <TextView
+        android:id="@+id/cloudtext"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:textStyle="normal"
+        android:text="cloud"
+        android:layout_below="@id/thumbnailicon"
+        android:layout_marginTop="5dp"
+        android:layout_margin="5pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/pressuretext"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:textStyle="normal"
+        android:text="presssure"
+        android:layout_below="@id/cloudtext"
+        android:layout_marginTop="5dp"
+        android:layout_margin="5pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/humidtytext"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:textStyle="normal"
+        android:text="humidty"
+        android:layout_below="@id/pressuretext"
+        android:layout_marginTop="5dp"
+        android:layout_margin="5pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/sunrise"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:textStyle="normal"
+        android:text="sunrise"
+        android:layout_below="@id/humidtytext"
+
+        android:layout_margin="5pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/sunset"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:textStyle="normal"
+        android:text="sunset"
+        android:layout_below="@id/sunrise"
+        android:layout_marginTop="5dp"
+        android:layout_margin="5pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/updatetext"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:text="update"
+        android:layout_below="@id/sunset"
+        android:layout_centerHorizontal="true"
+
+        android:layout_margin="5pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/windtext"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:textStyle="normal"
+        android:text="Wind"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5pt"
+        android:layout_marginRight="5pt"
+        android:layout_alignBaseline="@+id/humidtytext"
+        android:layout_alignBottom="@+id/humidtytext"
+        android:layout_alignEnd="@+id/condition" />
+
+
+</RelativeLayout>
