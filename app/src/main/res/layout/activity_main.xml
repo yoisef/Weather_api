@@ -31,7 +31,7 @@
         android:layout_alignBottom="@+id/pressuretext"
         android:layout_alignStart="@+id/updatetext"
         android:layout_marginStart="53dp" />
-    <ImageView
+    <EditText
         android:layout_width="100dp"
         android:id="@+id/thumbnailicon"
         android:layout_below="@id/citytext"

@@ -13,6 +13,7 @@ public class Place {
     private String country;
     private String city;
     private long update;
+    private int id;
 
     public long getUpdate() {
         return update;
@@ -68,5 +69,13 @@ public class Place {
 
     public void setLon(float lon) {
         this.lon = lon;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

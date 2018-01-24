@@ -1,20 +1,27 @@
 package youssef.com.myweather;
 
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.util.Date;
 
+import Util.Utils;
 import data.JSonWeatherParsing;
 import data.WeatherHttpClient;
 import model.Place;
@@ -29,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView sunrise;
     private TextView sunsett;
     private TextView updatee;
-    private ImageView thumbnaill;
+    private EditText thumbnaill;
     private TextView condition;
 
 
@@ -46,23 +53,56 @@ public class MainActivity extends AppCompatActivity {
         humdityy = (TextView) findViewById(R.id.humidtytext);
         sunrise = (TextView) findViewById(R.id.sunrise);
         sunsett = (TextView) findViewById(R.id.sunset);
-        thumbnaill = (ImageView) findViewById(R.id.thumbnailicon);
+        thumbnaill = (EditText) findViewById(R.id.thumbnailicon);
         condition=(TextView)findViewById(R.id.condition) ;
+        Typeface my=Typeface.createFromAsset(getAssets(),"fonts/weathericons-regular-webfont.ttf");
+        thumbnaill.setTypeface(my);
 
         renderWeatherData("Moscow,RU");
 
 
     }
 
+
+
     public void renderWeatherData(String city)
     {
        WeatherTask weatherTask=new WeatherTask();
         weatherTask.execute(new String[]{city + "&units=metric"});
+
+    }
+    private void setWeatherIcon(int actualId, long sunrise, long sunset){
+        int id = actualId / 100;
+        String icon = "";
+        if(actualId == 800){
+            long currentTime = new Date().getTime();
+            if(currentTime>=sunrise && currentTime<sunset) {
+                icon = "&#xf00d;";
+            } else {
+                icon = "&#xf02e;";
+            }
+        } else {
+            switch(id) {
+                case 2 : icon = "&#xf01e;";
+                    break;
+                case 3 : icon = "&#xf01c;";
+                    break;
+                case 7 : icon = "&#xf014;";
+                    break;
+                case 8 : icon = "&#xf013;";
+                    break;
+                case 6 : icon = "&#xf01b;";
+                    break;
+                case 5 : icon = "&#xf019;";
+                    break;
+            }
+        }
+        thumbnaill.setText(icon);
     }
 
 
 
-    private class downloadimageAsyntask extends AsyncTask<String,void, Bitmap>
+    private class downloadimageAsyntask extends AsyncTask<String,Void, Bitmap>
     {
 
         @Override
@@ -74,11 +114,8 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Bitmap bitmap) {
             super.onPostExecute(bitmap);
         }
-        private Bitmap downloadimg(String code)
-        {
 
-           return
-        }
+
     }
 
 
@@ -109,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
             sunsett.setText("Sunset :"+sunset);
             sunrise.setText("SunRise:"+sunrisee);
             condition.setText("Condition :"+weather.currentCondation.getDescription()+"("+weather.currentCondation.getCondition()+")");
+            setWeatherIcon(weather.place.getId(), weather.place.getSunrise(), weather.place.getSunsrt());
 
 
 
